@@ -162,4 +162,5 @@ result_containers = fill_containers(order, max_container_weight)
 df_combined = pd.concat([pd.DataFrame(container, columns=['Артикул', 'Вес']).assign(Контейнер=pos + 1) for pos, container in enumerate(result_containers)])
 marged_data9 = pd.merge(order, df_combined, on='Артикул', how='left')
 # Сохраняем в Excel
+print("Готово")
 marged_data9.to_excel('Обновленный_Заказ.xlsx', index=False)
